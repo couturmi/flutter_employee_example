@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 enum EmployeeListEvent { load, clear }
 
 class EmployeeBloc extends Bloc<EmployeeListEvent, List<Employee>> {
+  List<Employee> _loadedEmployeeList;
+
   @override
   List<Employee> get initialState => [];
 
@@ -12,7 +14,10 @@ class EmployeeBloc extends Bloc<EmployeeListEvent, List<Employee>> {
   Stream<List<Employee>> mapEventToState(EmployeeListEvent event) async* {
     switch (event) {
       case EmployeeListEvent.load:
-        yield await EmployeeService().getEmployees();
+        if (null == _loadedEmployeeList) {
+          _loadedEmployeeList = await EmployeeService().getEmployees();
+        }
+        yield _loadedEmployeeList;
         break;
       case EmployeeListEvent.clear:
         yield [];
