@@ -13,12 +13,19 @@ class StaffScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => EmployeeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<EmployeeBloc>(
+          create: (context) => EmployeeBloc(),
+        ),
+        BlocProvider<ViewTypeBloc>(
+          create: (context) => ViewTypeBloc(_viewType),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Staff Roster"),
+          title: Text(_getAppBarTitle(_viewType)),
           centerTitle: true,
         ),
         body: Column(
@@ -30,5 +37,13 @@ class StaffScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Generate the AppBar title based on the current ViewType
+  String _getAppBarTitle(ViewType viewType) {
+    if (viewType == ViewType.manager) {
+      return "Staff Roster (Manager)";
+    }
+    return "Staff Roster";
   }
 }

@@ -51,7 +51,7 @@ class LandingScreen extends StatelessWidget {
 
   /// Navigate to the StaffScreen
   void _navigateToStaffScreen(BuildContext context, ViewType viewType) {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return StaffScreen(viewType);
     }));
   }
