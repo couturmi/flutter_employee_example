@@ -2,6 +2,7 @@ import 'package:example_proj/bloc/employee_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Widget containing the group of buttons responsible for controlling the state of the displayed list
 class ActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

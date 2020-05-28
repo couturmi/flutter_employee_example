@@ -3,6 +3,7 @@ import 'package:example_proj/model/employee.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Widget to display the list of staff
 class StaffList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

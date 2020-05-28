@@ -1,5 +1,5 @@
 import 'package:example_proj/bloc/employee_bloc.dart';
-import 'package:example_proj/widgets/staff_list.dart';
+import 'package:example_proj/widgets/staff_list/staff_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
