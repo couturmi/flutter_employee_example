@@ -5,6 +5,12 @@ import 'package:flutter/material.dart';
 /// Entry point to the application
 class LandingScreen extends StatelessWidget {
   static const double VIEW_BUTTON_WIDTH = 150.0;
+  static const String MANAGER_BUTTON_KEY_ID = "LandingManagerButton";
+  static const String NORMAL_BUTTON_KEY_ID = "LandingNormalButton";
+
+  final Key _managerButtonKey = Key(MANAGER_BUTTON_KEY_ID);
+  final Key _normalButtonKey = Key(NORMAL_BUTTON_KEY_ID);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +26,7 @@ class LandingScreen extends StatelessWidget {
             SizedBox(
               width: VIEW_BUTTON_WIDTH,
               child: RaisedButton(
+                key: _managerButtonKey,
                 child: Text(
                   "Manager View",
                   style: Theme.of(context).accentTextTheme.button,
@@ -33,6 +40,7 @@ class LandingScreen extends StatelessWidget {
             SizedBox(
               width: VIEW_BUTTON_WIDTH,
               child: RaisedButton(
+                key: _normalButtonKey,
                 child: Text(
                   "Normal View",
                   style: Theme.of(context).accentTextTheme.button,
